@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Agrim Dangi — Portfolio</title>
+  <meta name="description" content="Portfolio of Agrim Dangi — IIT Madras & Chandigarh University student. Projects, skills, resume, certificates and contact." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#071023;--card:#071427;--muted:#9aa4b2;--accent:#7c3aed;--glass:rgba(255,255,255,0.04)}
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial;margin:0;background:linear-gradient(180deg,#041021 0%, #071228 60%);color:#e6eef6;line-height:1.45}
+    .container{max-width:1024px;margin:36px auto;padding:28px}
+    header{display:flex;gap:16px;align-items:center}
+    .avatar{width:96px;height:96px;border-radius:16px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:flex;align-items:center;justify-content:center;font-weight:900;color:#061226;font-size:32px}
+    h1{margin:0;font-size:24px}
+    .muted{color:var(--muted);font-size:13px}
+    .top-row{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-top:12px}
+    .actions a{display:inline-block;margin-left:8px;padding:8px 12px;background:var(--glass);border-radius:10px;color:#cfe9ff;text-decoration:none;font-weight:600;font-size:13px}
+
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:18px;margin-top:18px;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+    .grid{display:grid;grid-template-columns:1fr 340px;gap:18px}
+    .section-title{display:flex;justify-content:space-between;align-items:center}
+    .small{font-size:13px;color:var(--muted)}
+    ul{padding-left:18px;margin:8px 0}
+    li{margin-bottom:8px}
+
+    .project{padding:12px;border-radius:10px;background:rgba(255,255,255,0.015);margin-bottom:12px}
+    .project h4{margin:0 0 6px 0}
+    .skill-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+    .badge{background:rgba(255,255,255,0.03);padding:6px 8px;border-radius:8px;font-size:13px;color:#cfe9ff}
+
+    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* modal */
+    .modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.7);display:none;align-items:center;justify-content:center;padding:20px}
+    .modal{background:linear-gradient(180deg,#071427,#081833);padding:18px;border-radius:12px;max-width:820px;width:100%;color:#eaf6ff}
+    .modal h3{margin-top:0}
+    .close-btn{background:transparent;border:0;color:#cfe9ff;font-weight:700;padding:6px 10px;border-radius:8px}
+
+    @media (max-width:920px){.grid{grid-template-columns:1fr}.actions{margin-top:12px}.top-row{flex-direction:column;align-items:flex-start}}
+    .btn{display:inline-block;padding:8px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:#dff5ff;text-decoration:none;font-weight:700}
+    a.link{color:#a8d8ff;text-decoration:underline}
+
+    /* small table for certificates */
+    .cert-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    @media (max-width:560px){.cert-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="avatar">AD</div>
+      <div style="flex:1">
+        <h1>Agrim Dangi</h1>
+        <div class="muted">IIT Madras (BS Data Science) • Chandigarh University (BCA) • Meerut, Uttar Pradesh</div>
+        <div class="top-row">
+          <div class="muted">📧 <a class="link" href="mailto:dangiagrim05@gmail.com">dangiagrim05@gmail.com</a> • 📞 +91-8920883833</div>
+          <div class="actions">
+            <a href="#contact" class="btn">Contact</a>
+            <a href="https://github.com/AgrimDangi" target="_blank">GitHub</a>
+            <a href="http://www.linkedin.com/in/agrimdangi" target="_blank">LinkedIn</a>
+            <a id="resume-btn" href="#resume">Resume</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="card">
+      <div class="grid">
+        <section>
+          <h3 style="margin-top:0">Summary</h3>
+          <p class="small">Foundation-level BS student at IIT Madras and BCA student at Chandigarh University, skilled in web design, data structures, PC hardware, and app development. Proficient in HTML, CSS, JavaScript, Python, C, and SQL. Awarded ₹1.5L scholarship and represented at state-level kabaddi.</p>
+
+          <div style="margin-top:14px">
+            <div class="section-title"><h3>Projects</h3><div class="small">Click project to view details</div></div>
+
+            <div class="project" tabindex="0" role="button" onclick="openModal('india')">
+              <h4>India Tourism Website <span class="small">(HTML, CSS, JavaScript)</span></h4>
+              <ul>
+                <li>Built interactive map-based site with zoomable states and highlighted tourist spots.</li>
+                <li>Implemented responsive layout and hover effects for improved UX on mobile and desktop.</li>
+              </ul>
+            </div>
+
+            <div class="project" tabindex="0" role="button" onclick="openModal('ecom')">
+              <h4>E-Commerce Website <span class="small">(HTML, CSS)</span></h4>
+              <ul>
+                <li>Developed responsive website featuring 30+ product categories and clean navigation.</li>
+                <li>Optimized assets and layout to perform well in online compilers and low-bandwidth scenarios.</li>
+              </ul>
+            </div>
+
+            <div class="project" tabindex="0" role="button" onclick="openModal('2048')">
+              <h4>2048 Game Implementation <span class="small">(C)</span></h4>
+              <ul>
+                <li>Implemented the 2048 puzzle using arrays and core data structures concepts.</li>
+                <li>Designed gameplay logic with score tracking and stable merges.</li>
+              </ul>
+            </div>
+
+            <div class="project" tabindex="0" role="button" onclick="openModal('planner')">
+              <h4>Study Planner App <span class="small">(HTML, CSS, JavaScript, SQLite)</span></h4>
+              <ul>
+                <li>Created to-do lists with deadlines, progress tracker, and study statistics dashboard.</li>
+                <li>Designed Notion-style UI emphasizing simplicity and responsiveness.</li>
+              </ul>
+            </div>
+
+            <div class="project" tabindex="0" role="button" onclick="openModal('hardware')">
+              <h4>PC Hardware Water Level Indicator <span class="small">(Team Project)</span></h4>
+              <ul>
+                <li>Built sensor-based water level detection system with alert mechanism.</li>
+                <li>Collaborated on hardware assembly, troubleshooting, and testing.</li>
+              </ul>
+            </div>
+
+          </div>
+
+          <div style="margin-top:14px">
+            <h3>Education</h3>
+            <p class="small"><strong>IIT Madras</strong> — BS (Honours) in Data Science & Engineering (Jul 2024 – Jun 2028) • CGPA: 8.32/10</p>
+            <p class="small"><strong>Chandigarh University</strong> — BCA (Jul 2024 – Jun 2027) • CGPA: 9.0/10</p>
+          </div>
+
+          <div style="margin-top:14px">
+            <h3 id="resume">Resume & Certificates</h3>
+            <p class="small">Download resume or view certificates below. (All links open in a new tab.)</p>
+            <p>
+              <a class="btn" href="https://drive.google.com/file/d/1knpeUDCF10D3NBhCl1GZo7poZwz0XFbG/view?usp=sharing" target="_blank">View Resume (Google Drive)</a>
+              <a class="btn" href="/Agrim_Resume.pdf" download>Download Resume (PDF)</a>
+            </p>
+
+            <div style="margin-top:10px">
+              <h4 class="small">Certifications</h4>
+              <div class="cert-grid small">
+                <div><a class="link" href="https://coursera.org/share/7f9addd5e267e3dc454a5c3d50eb2b27" target="_blank">Canva — Coursera</a></div>
+                <div><a class="link" href="https://www.credly.com/badges/6ea9be06-6f2d-4dc9-93fa-cda88cb5f4e2/linked_in_profile" target="_blank">Prompt Designing — Credly</a></div>
+                <div><a class="link" href="https://www.credly.com/badges/91b05d28-a4c1-4148-a0ce-5d10d48d831f/linked_in_profile" target="_blank">Web Dev / HTML,CSS,JS — Credly</a></div>
+                <div><a class="link" href="https://drive.google.com/file/d/1knpeUDCF10D3NBhCl1GZo7poZwz0XFbG/view?usp=sharing" target="_blank">SAP Tech Web Dev (certificate)</a></div>
+              </div>
+            </div>
+
+          </div>
+
+        </section>
+
+        <aside>
+          <div class="card" style="padding:12px;margin:0">
+            <h3 style="margin-top:0">Skills</h3>
+            <div class="skill-badges">
+              <div class="badge">C</div>
+              <div class="badge">C++</div>
+              <div class="badge">Python</div>
+              <div class="badge">HTML/CSS</div>
+              <div class="badge">JavaScript</div>
+              <div class="badge">SQL</div>
+              <div class="badge">Bootstrap</div>
+              <div class="badge">Tailwind</div>
+              <div class="badge">Git</div>
+            </div>
+
+            <h3 style="margin-top:12px">Programming Practice</h3>
+            <p class="small">Daily problem solving on LeetCode & HackerRank — strengthen algorithms & DS. (Update the exact count on your profile.)</p>
+
+            <h3 style="margin-top:12px">Awards</h3>
+            <ul class="small">
+              <li>VBTSE Scholarship — ₹1.5L covering full schooling</li>
+              <li>District-Level Scholar — ₹15,000 prize</li>
+              <li>State Level Kabaddi — Representative</li>
+              <li>KVPY (Ranked 911) — National Fellowship eligibility</li>
+            </ul>
+
+            <h3 style="margin-top:12px">Contact</h3>
+            <p class="small">Email: <a href="mailto:dangiagrim05@gmail.com">dangiagrim05@gmail.com</a></p>
+            <p class="small">LinkedIn: <a href="http://www.linkedin.com/in/agrimdangi" target="_blank">agrimdangi</a></p>
+            <p class="small">GitHub: <a href="https://github.com/AgrimDangi" target="_blank">AgrimDangi</a></p>
+
+            <div style="margin-top:10px">
+              <a class="btn" href="#contact">Get in touch</a>
+            </div>
+          </div>
+
+          <div class="card small" style="margin-top:12px;padding:12px">
+            <h3 style="margin-top:0">Relevant Coursework (Math)</h3>
+            <ul>
+              <li>Linear Algebra (vector spaces, eigenvalues)</li>
+              <li>Probability & Statistics</li>
+              <li>Calculus & Multivariable Calculus</li>
+              <li>Matrix Theory, Vectors</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+
+      <section id="contact" style="margin-top:18px">
+        <h3>Contact & Links</h3>
+        <p class="small">Find me on LinkedIn/GitHub or email me directly. Below are quick links to resume and certificates.</p>
+        <p>
+          <a class="btn" href="https://github.com/AgrimDangi" target="_blank">View GitHub</a>
+          <a class="btn" href="http://www.linkedin.com/in/agrimdangi" target="_blank">View LinkedIn</a>
+        </p>
+      </section>
+
+    </main>
+
+    <footer>
+      Built with ❤️ • Maintained by Agrim Dangi
+    </footer>
+  </div>
+
+  <!-- Modal container for project details -->
+  <div id="modal-root" class="modal-backdrop" role="dialog" aria-hidden="true">
+    <div class="modal" role="document">
+      <button class="close-btn" onclick="closeModal()">Close ×</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <script>
+    const projects = {
+      india: {
+        title: 'India Tourism Website',
+        tech: 'HTML, CSS, JavaScript',
+        desc: `Built an interactive map-based website with zoomable states, searchable tourist spots and details.
+
+Features: Zoomable SVG map, hover cards for monuments, mobile-first responsive layout, and lightweight assets for quick loading.
+
+Code: https://github.com/AgrimDangi/india-tourism (add repo link)`
+      },
+      ecom: {
+        title: 'E-Commerce Website',
+        tech: 'HTML, CSS',
+        desc: `Responsive multi-category site with 30+ products, grid filtering, and accessible layout.
+
+Optimizations: Minified assets, semantic HTML, and offline-friendly images for low-bandwidth users.
+
+Code: https://github.com/AgrimDangi/ecommerce (add repo link)`
+      },
+      '2048': {
+        title: '2048 Game (C)',
+        tech: 'C',
+        desc: `Terminal-based 2048 implementation using arrays for the board, functions for movement logic, and score tracking.
+
+Focus: Clean data-structure usage and stable tile-merge logic.
+
+Code: https://github.com/AgrimDangi/2048-c (add repo link)`
+      },
+      planner: {
+        title: 'Study Planner App',
+        tech: 'HTML, CSS, JavaScript, SQLite',
+        desc: `Notion-style study planner with to-dos, deadlines, progress charts and a simple SQLite backend for persistence.
+
+Features: Deadline reminders, progress graphs, and local storage sync.
+
+Code: https://github.com/AgrimDangi/study-planner (add repo link)`
+      },
+      hardware: {
+        title: 'PC Hardware Water Level Indicator',
+        tech: 'Embedded / Sensors',
+        desc: `Sensor-based water level detection with buzzer/LED alerts; team project focusing on hardware troubleshooting and documentation.
+
+Contributions: Sensor calibration, wiring, testing and final report.`
+      }
+    }
+
+    function openModal(key){
+      const data = projects[key];
+      const root = document.getElementById('modal-root');
+      const content = document.getElementById('modal-content');
+      content.innerHTML = `<h3>${data.title} <small style="color:var(--muted);font-size:13px"> — ${data.tech}</small></h3><p class=\"small\">${data.desc.replace(/
+/g,'<br>')}</p><p><a class=\"btn\" target=\"_blank\" href=\"https://github.com/AgrimDangi\">Open GitHub</a></p>`;
+      root.style.display = 'flex';
+      root.setAttribute('aria-hidden','false');
+    }
+    function closeModal(){
+      const root = document.getElementById('modal-root');
+      root.style.display = 'none';
+      root.setAttribute('aria-hidden','true');
+    }
+
+    document.getElementById('resume-btn').addEventListener('click', function(e){
+      e.preventDefault();
+      document.getElementById('resume').scrollIntoView({behavior:'smooth'});
+    });
+
+    // keyboard accessibility for modal
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal();});
+  </script>
+</body>
+</html>
